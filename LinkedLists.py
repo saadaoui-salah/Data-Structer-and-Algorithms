@@ -23,12 +23,51 @@ class LinkedList:
             itr = itr.next
         print(llstr)
 
+    def add_in_the_end(self, data):
+        if self.head is None:
+            self.head = Node(data, None)
+            return
+        
+        itr = self.head
+        while itr.next:
+            itr = itr.next
+        itr.next = Node(data, None)
+
+    def add_values(self, data_list):
+        for data in data_list:
+            self.add_in_the_end(data)
+
+    def length(self):
+        if self.head is None:
+            return 0
+        count = 0
+        itr = self.head
+        while itr.next:
+            itr = itr.next
+            count += 1
+        return count
+
 linked_list = LinkedList()
-linked_list.add_in_the_beginig(0)
-linked_list.add_in_the_beginig(1)
-linked_list.add_in_the_beginig(2)
-linked_list.add_in_the_beginig(3)
-linked_list.add_in_the_beginig(4)
-linked_list.add_in_the_beginig(5)
-linked_list.add_in_the_beginig(6)
-linked_list.print_()
+
+def test_add_in_the_begning():
+    linked_list.add_in_the_beginig(0)
+    linked_list.add_in_the_beginig(1)
+    linked_list.add_in_the_beginig(2)
+    linked_list.add_in_the_beginig(3)
+    linked_list.print_()
+
+def test_add_in_the_end():
+    linked_list.add_in_the_end(0)
+    linked_list.add_in_the_end(1)
+    linked_list.add_in_the_end(2)
+    linked_list.add_in_the_end(3)
+    linked_list.print_()
+
+def test_add_values_and_length():
+    linked_list.add_values([0,1,2,3,4,5,6])
+    linked_list.print_()
+    length = linked_list.length()
+    print(length)
+
+
+test_add_values_and_length()
