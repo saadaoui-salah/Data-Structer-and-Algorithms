@@ -17,14 +17,27 @@ class HashTable:
     def sort(self, key):
         index = self.hash_function(key)
         return self.array[index]
+    
+    def delete(self, key):
+        index = self.hash_function(key)
+        if self.array[index] == None:
+            raise "Key Not Found"
+            return
+        self.array[index] = None
+        return True
 
 
-def test_add_and_sort():
+def test():
     h = HashTable()
-    h.add("september", 2010)
-    value = h.sort("september")
-    print(value)
+    key = "september"
+    value = 2010
+    h.add(key, value)
+    test_value = h.sort("september")
+    test_add = test_value == value
+    print(test_add)
+    deleted = h.delete(key)
+    print(deleted)
 
 
 if __name__ == '__main__':
-    test_add_and_sort()
+    test()
