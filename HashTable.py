@@ -30,11 +30,13 @@ class HashTable:
 
     def delete(self, key):
         index = self.hash_function(key)
-        if self.array[index] == None:
-            raise "Key Not Found"
-            return
-        self.array[index] = None
-        return True
+        if len(self.array[index]) > 0:
+            for i, element in enumerate(self.array[index]):
+                if len(element) ==2 and element[0] == key:
+                    self.array[index][i] = []
+            return True
+        raise "Key Not Found"
+        return
 
 
 def test():
@@ -55,6 +57,9 @@ def test2():
     value1 = h.sort("march 6")
     value2 = h.sort("march 17")
     print(value1, value2)
+    deleted1 = h.delete("march 6")
+    deleted2 = h.delete("march 17")
+    print(deleted1, deleted2)
 if __name__ == '__main__':
     test()
     test2()
