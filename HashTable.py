@@ -1,7 +1,7 @@
 class HashTable:
     def __init__(self):
         self.SIZE = 100
-        self.array = [None for i in range(self.SIZE)]
+        self.array = [[] for i in range(self.SIZE)]
 
     def hash_function(self, key):
         hash_num = 0
@@ -12,12 +12,22 @@ class HashTable:
 
     def add(self, key, value):
         index = self.hash_function(key)
-        self.array[index] = value
+        found = False
+        for i, element in enumerate(self.array):
+            if len(element) == 2 and element[0] == key:
+                self.array[index][i].append((key, value))
+                break
+        if not found:
+            self.array[index].append((key,value))
 
     def sort(self, key):
         index = self.hash_function(key)
-        return self.array[index]
-    
+        if len(self.array[index]) > 0 :
+            for element in self.array[index]:
+                if element[0] == key:
+                    return element[1]
+        raise "Key Not Found"
+        
     def delete(self, key):
         index = self.hash_function(key)
         if self.array[index] == None:
