@@ -1,21 +1,22 @@
-import LinkedLists
-from LinkedLists import LinkedList
+class Node:
+    def __init__(self, data):
+        self.next = None
+        self.data = data
 
-class Stack(LinkedList):
+class Stack:
     def __init__(self):
         self.head = None
 
-    def insert(self, data):
-        self.head = self.add_in_the_end(data)
-        self.print_()
+    def push(self, data):
+        if self.head is None:
+            self.head = Node(data)
+            return self.head
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
 
     def pop(self):
         if self.head is not None:
-            if self.head.next:
-                print(self.head.next.data)
-                self.head.next = None
-                return
-            if self.head.data:
-                print(self.head.data)
-                self.head = None
-                return
+            popped = self.head.data
+            self.head = self.head.next
+            print(popped)
