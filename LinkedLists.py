@@ -47,27 +47,29 @@ class LinkedList:
             count += 1
         return count
 
-linked_list = LinkedList()
 
-def test_add_in_the_begning():
-    linked_list.add_in_the_beginig(0)
-    linked_list.add_in_the_beginig(1)
-    linked_list.add_in_the_beginig(2)
-    linked_list.add_in_the_beginig(3)
-    linked_list.print_()
+if __name__ == '__main__':
+    linked_list = LinkedList()
 
-def test_add_in_the_end():
-    linked_list.add_in_the_end(0)
-    linked_list.add_in_the_end(1)
-    linked_list.add_in_the_end(2)
-    linked_list.add_in_the_end(3)
-    linked_list.print_()
+    def test_add_in_the_begning():
+        linked_list.add_in_the_beginig(0)
+        linked_list.add_in_the_beginig(1)
+        linked_list.add_in_the_beginig(2)
+        linked_list.add_in_the_beginig(3)
+        linked_list.print_()
 
-def test_add_values_and_length():
-    linked_list.add_values([0,1,2,3,4,5,6])
-    linked_list.print_()
-    length = linked_list.length()
-    print(length)
+    def test_add_in_the_end():
+        linked_list.add_in_the_end(0)
+        linked_list.add_in_the_end(1)
+        linked_list.add_in_the_end(2)
+        linked_list.add_in_the_end(3)
+        linked_list.print_()
+
+    def test_add_values_and_length():
+        linked_list.add_values([0,1,2,3,4,5,6])
+        linked_list.print_()
+        length = linked_list.length()
+        print(length)
 
 
-test_add_values_and_length()
+    test_add_values_and_length()
