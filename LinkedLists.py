@@ -11,6 +11,7 @@ class LinkedList:
     def add_in_the_beginig(self, data):
         node = Node(data, self.head)
         self.head = node 
+        return self.head
 
     def print_(self):
         if self.head is None:
@@ -26,12 +27,13 @@ class LinkedList:
     def add_in_the_end(self, data):
         if self.head is None:
             self.head = Node(data, None)
-            return
+            return self.head
         
         itr = self.head
         while itr.next:
             itr = itr.next
         itr.next = Node(data, None)
+        return itr
 
     def add_values(self, data_list):
         for data in data_list:

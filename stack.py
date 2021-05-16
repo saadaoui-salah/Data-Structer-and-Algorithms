@@ -1,15 +1,21 @@
 import LinkedLists
+from LinkedLists import LinkedList
 
-class Stack:
+class Stack(LinkedList):
     def __init__(self):
-        self.block = LinkedList()
+        self.head = None
 
     def insert(self, data):
-        self.block.add_in_the_end(data)
+        self.head = self.add_in_the_end(data)
+        self.print_()
 
     def pop(self):
-        print(self.block.data)
-        self.block.data = None
-
-
-    
+        if self.head is not None:
+            if self.head.next:
+                print(self.head.next.data)
+                self.head.next = None
+                return
+            if self.head.data:
+                print(self.head.data)
+                self.head = None
+                return
