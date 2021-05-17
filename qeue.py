@@ -3,7 +3,7 @@ class Node:
         self.next = None
         self.data = data
 
-class Stack:
+class Qeue:
     def __init__(self):
         self.head = None
 
@@ -12,8 +12,8 @@ class Stack:
             self.head = Node(data)
             return self.head
         new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
+        self.head.next = new_node
+        self.head = self.head.next
 
     def pop(self):
         if self.head is not None:
