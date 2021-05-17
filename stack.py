@@ -19,4 +19,4 @@ class Stack:
         if self.head is not None:
             popped = self.head.data
             self.head = self.head.next
-            print(popped)
+            return popped
