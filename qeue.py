@@ -1,22 +1,34 @@
 class Node:
-    def __init__(self, data):
-        self.next = None
+    def __init__(self, prev, data, next):
+        self.next = next
         self.data = data
 
-class Qeue:
+class Queue:
     def __init__(self):
-        self.head = None
+        self.first = self.last = None
 
-    def push(self, data):
-        if self.head is None:
-            self.head = Node(data)
-            return self.head
-        new_node = Node(data)
-        self.head.next = new_node
-        self.head = self.head.next
+    def en_queue(self, data):
+        self.head = Node(data, self.head)
+        
 
-    def pop(self):
+    def de_queue(self):
         if self.head is not None:
             popped = self.head.data
             self.head = self.head.next
             return popped
+
+
+
+if __name__ == '__main__':
+    q = Qeue()
+    q.push(1)
+    q.push(2)
+    q.push(3)
+    q.push(4)
+    q.push(5)
+    popped = q.pop()
+    print(popped)
+    popped = q.pop()
+    print(popped)
+    popped = q.pop()
+    print(popped)
