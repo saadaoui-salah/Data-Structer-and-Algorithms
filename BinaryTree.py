@@ -21,11 +21,11 @@ class BSTNode:
     def in_order(self):
         elements = []
         if self.left:
-            self.left.in_order()
+            elements +=self.left.in_order()
 
         elements.append(self.data)
 
         if self.right:
-            self.right.in_order()
+            elements += self.right.in_order()
         
         return elements
