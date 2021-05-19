@@ -17,3 +17,15 @@ class BSTNode:
                 self.left = BSTNode(data)
             else:
                 self.left.add_node(data)
+
+    def in_order(self):
+        elements = []
+        if self.left:
+            self.left.in_order()
+
+        elements.append(self.data)
+
+        if self.right:
+            self.right.in_order()
+        
+        return elements
