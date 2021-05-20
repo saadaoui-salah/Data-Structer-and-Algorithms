@@ -22,12 +22,9 @@ class BSTNode:
         elements = []
         if self.left:
             elements +=self.left.in_order()
-
         elements.append(self.data)
-
         if self.right:
             elements += self.right.in_order()
-        
         return elements
 
     def pre_order(self):
@@ -37,7 +34,15 @@ class BSTNode:
             elements +=self.left.in_order()
         if self.right:
             elements += self.right.in_order()
-        
+        return elements
+
+    def post_order(self):
+        elements = []
+        if self.left:
+            elements +=self.left.in_order()
+        if self.right:
+            elements += self.right.in_order()
+        elements.append(self.data)
         return elements
 
 
