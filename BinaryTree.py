@@ -7,7 +7,7 @@ class BSTNode:
     def add_node(self, data):
         if self.data == data:
             return
-        if self.data < data:
+        if self.data > data:
             if self.right is None:
                 self.right = BSTNode(data)
             else:
@@ -20,13 +20,13 @@ class BSTNode:
 
     def in_order(self):
         elements = []
-        if self.left:
-            elements +=self.left.in_order()
+        if self.right:
+            elements +=self.right.in_order()
 
         elements.append(self.data)
 
-        if self.right:
-            elements += self.right.in_order()
+        if self.left:
+            elements += self.left.in_order()
         
         return elements
 
@@ -34,12 +34,22 @@ class BSTNode:
         if self.data == data:
             return True
         if self.data < data:
-            if self.right:
-                return self.right.search(data)
+            if self.left:
+                return self.left.search(data)
             return False
-        if self.left:
-            return self.left.search(data)
+        if self.right:
+            return self.right.search(data)
         return False
+   
+    def get_min(self):
+        while self.left:
+            self.left = self.left.left
+        return self.data
+   
+    def get_max(self):
+        while self.right:
+            self.right = self.right.right
+        return self.data
 
 def emplement_tree(arr):
     node = BSTNode(arr[0])
@@ -53,3 +63,5 @@ if __name__ == "__main__":
     print(tree.in_order())
     print(tree.search(15))
     print(tree.search(22))
+    print("min :",tree.get_min())
+    print("max :",tree.get_max())
