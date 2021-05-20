@@ -29,3 +29,14 @@ class BSTNode:
             elements += self.right.in_order()
         
         return elements
+
+def emplement_tree(arr):
+    node = BSTNode(arr[0])
+    for i in range(1,len(arr)):
+        node.add_node(arr[i])
+    return node
+    
+if __name__ == "__main__":
+    elements = [5,12,14,15,27,20,88,23]
+    tree = emplement_tree(elements)
+    print(tree.in_order())
