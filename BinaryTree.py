@@ -30,6 +30,17 @@ class BSTNode:
         
         return elements
 
+    def pre_order(self):
+        elements = []
+        elements.append(self.data)
+        if self.left:
+            elements +=self.left.in_order()
+        if self.right:
+            elements += self.right.in_order()
+        
+        return elements
+
+
     def search(self, data):
         if self.data == data:
             return True
@@ -73,13 +84,14 @@ def emplement_tree(arr):
 if __name__ == "__main__":
     elements = [12,7,14,15,10,102,27,20,88,23]
     tree = emplement_tree(elements)
-    #print(tree.in_order())
-    #print(tree.search(15))
-    #print(tree.search(22))
-    a = 0
-    for i in elements:
-        a += i
-    print("a",a)
+    print(tree.in_order())
+    print(tree.pre_order())
+    # print(tree.search(15))
+    # print(tree.search(22))
+    # a = 0
+    # for i in elements:
+    #     a += i
+    # print("a",a)
     print("min :",tree.get_min())
     print("max :",tree.get_max())
     print("sum :",tree.calculate_sum())
